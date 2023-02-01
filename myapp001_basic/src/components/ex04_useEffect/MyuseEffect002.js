@@ -17,7 +17,7 @@ const MyuseEffect002 = () => {
   };
 
   // 변수는 리렌더링 발생 x
-  // [] 처음 마운트 할 때만 렌더링 발생
+  // [] 처음 마운트 할 때만 렌더링
   useEffect(() => {
     console.log('data:' + data);
   }, []);

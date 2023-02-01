@@ -1,5 +1,9 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
+import Input from './components/input1';
+import Todo from './components/todo1';
+
+// 상태전달 : props
 
 function App() {
   const wrap = {
@@ -57,36 +61,14 @@ function App() {
 
   return (
     <div className='App' style={wrap}>
-      <h1>TODO LIST</h1>
-      <form onSubmit={insertTodo}>
-        <input
-          type='text'
-          required={true}
-          value={input}
-          onChange={handleChangeText}
-        />
-        <input type='submit' value='Create' />
-      </form>
+      <h1>TODO LIST 1</h1>
+      <Input
+        input={input}
+        insertTodo={insertTodo}
+        handleChangeText={handleChangeText}
+      />
       {/* 리스트 출력 부분 */}
-      {todos
-        ? todos.map((todo) => {
-            return (
-              <div className='todo' key={todo.id}>
-                <h3>
-                  <label
-                    className={todo.completed ? 'completed' : null}
-                    onClick={() => updateTodo(todo.id)}
-                  >
-                    {todo.todoname}
-                  </label>
-                  <label onClick={() => deleteTodo(todo.id)}>
-                    &nbsp;&nbsp;삭제
-                  </label>
-                </h3>
-              </div>
-            );
-          })
-        : null}
+      <Todo todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
     </div>
   );
 }
