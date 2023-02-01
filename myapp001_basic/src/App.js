@@ -22,6 +22,7 @@ import MyuseReducer002 from './components/ex06_useReducer/MyuseReducer002';
 import Myprops001 from './components/ex07_props/Myprops001';
 import Myprops002 from './components/ex07_props/Myprops002';
 import Myprops003 from './components/ex07_props/Myprops003';
+import MyuseContext01 from './components/ex08_context/MyuseContext01';
 
 function App() {
   return (
@@ -48,7 +49,8 @@ function App() {
       {/* {<Myprops001 name='홍길동' />} */}
       {/* {<Myprops002 name='홍길동' age='25' loc='서울' />} */}
       {/* {<Myprops003 />} */}
-      {<Myprops003 name='홍길동' age='25' loc='서울' />}
+      {/* {<Myprops003 name='홍길동' age='25' loc='서울' />} */}
+      {<MyuseContext01 />}
     </div>
   );
 }
