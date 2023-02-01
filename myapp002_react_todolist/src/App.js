@@ -16,9 +16,12 @@ function App() {
     { id: 3, todoname: '사진정리하기', completed: 0 },
   ];
 
-  const [todos, setTodos] = useState([...boardList]);
+  const [todos, setTodos] = useState([]);
 
   const [input, setInput] = useState('');
+
+  // DB작업
+  function getTodos() {}
 
   const insertTodo = (e) => {
     // form 형식의 기본 action은 '#'이다. 이벤트가 발생되지 않도록 preventDefault()를 작성한다.
