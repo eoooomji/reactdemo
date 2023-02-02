@@ -2,7 +2,10 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { baseUrl } from './CommonApi/todoApi';
+import Input from './components/input1';
+import Todo from './components/todo1';
 
+// 상태전달 : props
 function App() {
   const wrap = {
     width: '500px',
@@ -11,12 +14,6 @@ function App() {
   };
 
   // const baseUrl = 'http://localhost:8090';
-
-  let boardList = [
-    { id: 1, todoname: '운동하기', completed: 0 },
-    { id: 2, todoname: 'SNS꾸미기', completed: 0 },
-    { id: 3, todoname: '사진정리하기', completed: 0 },
-  ];
 
   const [todos, setTodos] = useState([]);
 
@@ -128,36 +125,15 @@ function App() {
 
   return (
     <div className='App' style={wrap}>
-      <h1>TODO LIST</h1>
-      <form onSubmit={insertTodo}>
-        <input
-          type='text'
-          required={true}
-          value={input}
-          onChange={handleChangeText}
-        />
-        <input type='submit' value='Create' />
-      </form>
+      <h1>TODO LIST 1 (props)</h1>
+      <Input
+        input={input}
+        insertTodo={insertTodo}
+        handleChangeText={handleChangeText}
+      />
       {/* 리스트 출력 부분 */}
-      {todos
-        ? todos.map((todo) => {
-            return (
-              <div className='todo' key={todo.id}>
-                <h3>
-                  <label
-                    className={todo.completed ? 'completed' : null}
-                    onClick={() => updateTodo(todo.id, todo.completed)}
-                  >
-                    {todo.todoname}
-                  </label>
-                  <label onClick={() => deleteTodo(todo.id)}>
-                    &nbsp;&nbsp;삭제
-                  </label>
-                </h3>
-              </div>
-            );
-          })
-        : null}
+
+      <Todo todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
     </div>
   );
 }
