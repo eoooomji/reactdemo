@@ -11,10 +11,12 @@ const BoardList = () => {
   const { currentPage } = useParams();
 
   useEffect(() => {
+    //console.log(currentPage);
     getList(currentPage ? currentPage : 1);
   }, []);
 
   const getList = async (currentPage) => {
+    console.log(currentPage);
     await axios
       .get(baseUrl + '/board/list/' + currentPage)
       .then((response) => {
@@ -23,7 +25,7 @@ const BoardList = () => {
         setPv(response.data.pv);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.message);
       });
   };
 
@@ -54,7 +56,7 @@ const BoardList = () => {
               <TableRow
                 board={board}
                 key={board.num}
-                currentPage={currentPage}
+                currentPage={pv.currentPage}
               />
             );
           })}
