@@ -16,6 +16,21 @@ function BaseLayout() {
                 HOME
               </NavLink>
             </li>
+
+            <li className='nav-item'>
+              {/* NavLink, Link 내부에는 파라미터 값을 못 넘긴다. */}
+              <NavLink style={activeStyle} className='nav-link' to='/login'>
+                LOGIN
+              </NavLink>
+            </li>
+
+            <li className='nav-item'>
+              {/* NavLink, Link 내부에는 파라미터 값을 못 넘긴다. */}
+              <NavLink style={activeStyle} className='nav-link' to='/join'>
+                JOIN
+              </NavLink>
+            </li>
+
             <li className='nav-item'>
               {/* NavLink, Link 내부에는 파라미터 값을 못 넘긴다. */}
               <NavLink style={activeStyle} className='nav-link' to='/board'>

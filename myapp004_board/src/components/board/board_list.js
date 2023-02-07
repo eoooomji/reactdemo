@@ -51,25 +51,30 @@ const BoardList = () => {
           </tr>
         </thead>
         <tbody>
-          {boardList.map((board) => {
-            return (
-              <TableRow
-                board={board}
-                key={board.num}
-                currentPage={pv.currentPage}
-              />
-            );
-          })}
+          {boardList &&
+            boardList.map((board) => {
+              return (
+                <TableRow
+                  board={board}
+                  key={board.num}
+                  currentPage={pv.currentPage}
+                />
+              );
+            })}
         </tbody>
       </table>
-      <PageNavigation
-        currentPage={pv.currentPage}
-        startPage={pv.startPage}
-        endPage={pv.endPage}
-        blockPage={pv.blockPage}
-        totalPage={pv.totalPage}
-        getList={getList}
-      />
+      {pv ? (
+        <PageNavigation
+          currentPage={pv.currentPage}
+          startPage={pv.startPage}
+          endPage={pv.endPage}
+          blockPage={pv.blockPage}
+          totalPage={pv.totalPage}
+          getList={getList}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 };
