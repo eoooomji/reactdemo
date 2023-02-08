@@ -10,7 +10,7 @@ const JoinForm = () => {
     username: '',
     password: '',
     email: '',
-    authRole: '',
+    authRole: 'ROLE_MEMBER',
   });
 
   const onSubmit = async (e) => {
@@ -20,7 +20,14 @@ const JoinForm = () => {
         headers: { 'Content-Type': 'application/json' },
       })
       .then((response) => {
-        console.log(response.data);
+        setMember({
+          username: '',
+          password: '',
+          email: '',
+          authRole: 'ROLE_MEMBER',
+        });
+      })
+      .then((response) => {
         navigator('/');
       })
       .catch((err) => {
